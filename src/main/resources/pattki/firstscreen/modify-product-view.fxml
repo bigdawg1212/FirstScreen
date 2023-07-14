@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="678.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pattki.firstscreen.ModifyProductView">
+    <children>
+        <Pane layoutX="27.0" layoutY="35.0" prefHeight="595.0" prefWidth="845.0">
+            <children>
+                <TableView fx:id="mainPartsTable" layoutX="387.0" layoutY="80.0" prefHeight="142.0" prefWidth="412.0">
+                    <columns>
+                        <TableColumn fx:id="partIDColumn" prefWidth="75.0" text="Part ID" />
+                        <TableColumn fx:id="partNameColumn" prefWidth="113.111083984375" text="Part Name" />
+                        <TableColumn fx:id="partInvColumn" prefWidth="99.77783203125" text="Inventory Level" />
+                        <TableColumn fx:id="partPriceColumn" prefWidth="123.5555419921875" text="Price/ Cost per Unit" />
+                    </columns>
+                </TableView>
+                <TableView fx:id="tempAssociatedPartsTable" layoutX="387.0" layoutY="298.0" prefHeight="142.0" prefWidth="412.0">
+                    <columns>
+                        <TableColumn fx:id="tempAssoPartIDColumn" prefWidth="75.0" text="Part ID" />
+                        <TableColumn fx:id="tempAssoPartNameColumn" prefWidth="113.111083984375" text="Part Name" />
+                        <TableColumn fx:id="tempAssoPartInvColumn" prefWidth="99.77783203125" text="Inventory Level" />
+                        <TableColumn fx:id="tempAssoPartPriceColumn" prefWidth="123.5555419921875" text="Price/ Cost per Unit" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addAssoPartButton" layoutX="698.0" layoutY="246.0" mnemonicParsing="false" onAction="#onActionAddPart" text="Add" />
+                <Button fx:id="removePartButton" layoutX="645.0" layoutY="462.0" mnemonicParsing="false" onAction="#onActionRemovePart" text="Remove Associated Part" />
+                <Button fx:id="saveProductButton" layoutX="645.0" layoutY="509.0" mnemonicParsing="false" onAction="#onActionSaveProduct" text="Save" />
+                <Button fx:id="ModifyProductCancelButton" layoutX="736.0" layoutY="509.0" mnemonicParsing="false" onAction="#onActionDisplayMainMenu" text="Cancel" />
+                <Label layoutX="51.0" layoutY="42.0" text="Modify Product">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="79.0" layoutY="134.0" text="ID" />
+                <Label layoutX="79.0" layoutY="172.0" text="Name" />
+                <Label layoutX="79.0" layoutY="214.0" text="Inv" />
+                <Label layoutX="78.0" layoutY="259.0" text="Price" />
+                <Label layoutX="79.0" layoutY="298.0" text="Max" />
+                <TextField fx:id="idText" disable="true" editable="false" layoutX="127.0" layoutY="130.0" promptText="Prev Gen -Disabled" />
+                <TextField fx:id="nameText" layoutX="127.0" layoutY="168.0" text="Prev Name" />
+                <TextField fx:id="invText" layoutX="127.0" layoutY="210.0" prefHeight="25.0" prefWidth="75.0" text="Current #" />
+                <TextField fx:id="priceText" layoutX="127.0" layoutY="255.0" prefHeight="25.0" prefWidth="75.0" text="Current $" />
+                <TextField fx:id="maxText" layoutX="127.0" layoutY="294.0" prefHeight="25.0" prefWidth="75.0" text="Max" />
+                <Label layoutX="228.0" layoutY="298.0" text="Min" />
+                <TextField fx:id="minText" layoutX="276.0" layoutY="294.0" prefHeight="25.0" prefWidth="75.0" text="Min" />
+                <TextField fx:id="partsSearch" layoutX="643.0" layoutY="40.0" prefHeight="25.0" prefWidth="156.0" promptText="Search by Part ID or Name" />
+            <Label fx:id="exceptionText" layoutX="77.0" layoutY="361.0" />
+            </children></Pane>
+    </children>
+</AnchorPane>
