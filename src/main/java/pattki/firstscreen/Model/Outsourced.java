@@ -13,13 +13,13 @@ public class Outsourced extends Part{
     /**
      * Constructs a new `Outsourced` part with the specified properties.
      *
-     * id           the ID of the part
-     * name         the name of the part
-     * price        the price of the part
-     * stock        the current stock level of the part
-     * min          the minimum stock level of the part
-     * max          the maximum stock level of the part
-     * companyName  the name of the company associated with the outsourced part
+     * @param id           the ID of the part
+     * @param name         the name of the part
+     * @param price        the price of the part
+     * @param stock        the current stock level of the part
+     * @param min          the minimum stock level of the part
+     * @param max          the maximum stock level of the part
+     * @param companyName  the name of the company associated with the outsourced part
      */
     public Outsourced(int id, String name, double price, int stock, int min, int max, String companyName) {
         super(id, name, price, stock, min, max);
@@ -28,6 +28,8 @@ public class Outsourced extends Part{
 
     /**
      * Returns the name of the company associated with the outsourced part.
+     *
+     * @return the company name
      */
     public String getCompanyName() {
         return companyName;
@@ -35,6 +37,8 @@ public class Outsourced extends Part{
 
     /**
      * Sets the name of the company associated with the outsourced part.
+     *
+     * @param companyName the company name to set
      */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;

@@ -12,6 +12,8 @@ public class ProductIdGenerator {
 
     /**
      * Generates the next available product ID.
+     *
+     * @return the next product ID
      */
     public static int generateNextId() {
         return nextProductId++;

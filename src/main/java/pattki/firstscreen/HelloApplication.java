@@ -13,6 +13,9 @@ import java.io.IOException;
  */
 public class HelloApplication extends Application {
 
+    // JavaDoc files are generated in the JavaDoc folder
+    // C:\Users\User Pablo\IdeaProjects\FirstScreen\JavaDoc
+
     /**
      * Entry point of the application.
      *

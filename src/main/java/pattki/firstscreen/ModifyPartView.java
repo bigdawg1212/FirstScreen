@@ -70,7 +70,10 @@ public class ModifyPartView implements Initializable {
     private Label exceptionText;
 
     /**
-     * Handles the event when the "Cancel" button is clicked.
+     * Handles the event when the "Display Main Menu" button is clicked.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs while loading the main menu view
      */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
@@ -83,6 +86,8 @@ public class ModifyPartView implements Initializable {
 
     /**
      * Handles the event when a radio button is selected.
+     *
+     * @param event the action event
      */
     @FXML
     private void handleRadioButtonSelection(ActionEvent event) {
@@ -106,6 +111,8 @@ public class ModifyPartView implements Initializable {
 
     /**
      * Sends the selected part to the modify part view.
+     *
+     * @param part the part to be modified
      */
     public void sendPart(Part part)
     {
@@ -140,6 +147,9 @@ public class ModifyPartView implements Initializable {
 
     /**
      * Handles the event when the "Save" button is clicked to save the modified part.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs while loading the main menu view
      */
     @FXML
     void onActionSavePart(ActionEvent event) throws IOException {
@@ -249,7 +259,10 @@ public class ModifyPartView implements Initializable {
     }
 
     /**
-     * Initialization when the ModifyPartView controller's screen is viewed.
+     * Initializes the modify part view.
+     *
+     * @param url            the URL to the FXML file
+     * @param resourceBundle the resource bundle associated with the FXML file
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

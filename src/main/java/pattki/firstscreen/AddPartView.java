@@ -60,6 +60,9 @@ public class AddPartView implements Initializable {
 
     /**
      * Handles the event when the "Cancel" button is clicked.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs while loading the main menu view
      */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
@@ -71,7 +74,9 @@ public class AddPartView implements Initializable {
     }
 
     /**
-     * Handles the event when the Radio buttons are toggled.
+     * Handles the event when a radio button is selected.
+     *
+     * @param event the action event
      */
     @FXML
     private void handleRadioButtonSelection(ActionEvent event) {
@@ -88,7 +93,10 @@ public class AddPartView implements Initializable {
     }
 
     /**
-     * Handles the event when the 'Save' button is clicked.
+     * Handles the action of saving a new part.
+     *
+     * @param event the action event
+     * @throws IOException if an I/O error occurs
      */
     @FXML
     void onActionSavePart(ActionEvent event) throws IOException {
@@ -180,7 +188,10 @@ public class AddPartView implements Initializable {
     }
 
     /**
-     * Initializes the AddPartView controller's screen.
+     * Initializes the add part view.
+     *
+     * @param url            the URL to the FXML file
+     * @param resourceBundle the resource bundle associated with the FXML file
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

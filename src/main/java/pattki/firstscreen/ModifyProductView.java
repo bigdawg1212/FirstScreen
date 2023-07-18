@@ -33,7 +33,10 @@ public class ModifyProductView implements Initializable {
     private ObservableList<Part> tempAssociatedParts = FXCollections.observableArrayList();
 
     /**
-     * Initializes the ModifyProductView controller's screen.
+     * Initializes the controller and sets up the initial state of the view.
+     *
+     * @param url            the location used to resolve relative paths for the root object
+     * @param resourceBundle the resources used to localize the root object
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -136,6 +139,8 @@ public class ModifyProductView implements Initializable {
 
     /**
      * Sets the product data for modification.
+     *
+     * @param product the product to modify
      */
     public void setProductData(Product product) {
         initialProduct = new Product(
@@ -167,6 +172,8 @@ public class ModifyProductView implements Initializable {
 
     /**
      * Handles the action when the user clicks the "Add" button to add a part to the product.
+     *
+     * @param event the action event
      */
     @FXML
     void onActionAddPart(ActionEvent event) {
@@ -185,6 +192,8 @@ public class ModifyProductView implements Initializable {
 
     /**
      * Handles the action when the user clicks the "Remove Associated Part" button to remove a part from the product.
+     *
+     * @param event the action event
      */
     @FXML
     void onActionRemovePart(ActionEvent event) {
@@ -209,6 +218,9 @@ public class ModifyProductView implements Initializable {
 
     /**
      * Handles the action when the user clicks the "Save" button to save the modified product.
+     *
+     * @param event the action event
+     * @throws IOException if an I/O error occurs
      */
     @FXML
     void onActionSaveProduct(ActionEvent event) throws IOException {
@@ -298,6 +310,9 @@ public class ModifyProductView implements Initializable {
 
     /**
      * Handles the action when the user clicks the "Cancel" button to go back to the main menu.
+     *
+     * @param event the action event
+     * @throws IOException if an I/O error occurs
      */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {

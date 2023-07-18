@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"pattki.firstscreen","l":"pattki.firstscreen"},{"m":"pattki.firstscreen","l":"pattki.firstscreen.Model"}];updateSearchResults();

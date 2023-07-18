@@ -12,6 +12,8 @@ public class PartIdGenerator {
 
     /**
      * Generates the next available part ID.
+     *
+     * @return the next part ID
      */
     public static int generateNextId() {
         return nextPartId++;

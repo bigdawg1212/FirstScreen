@@ -13,13 +13,13 @@ public class InHouse extends Part{
     /**
      * Constructs an `InHouse` part with the specified attributes.
      *
-     * id          the ID of the part
-     * name        the name of the part
-     * price       the price of the part
-     * stock       the current stock level of the part
-     * min         the minimum stock level of the part
-     * max         the maximum stock level of the part
-     * machineId   the ID of the machine used to produce the part
+     * @param id        the ID of the part
+     * @param name      the name of the part
+     * @param price     the price of the part
+     * @param stock     the current stock level of the part
+     * @param min       the minimum stock level of the part
+     * @param max       the maximum stock level of the part
+     * @param machineId the ID of the machine used to produce the part
      */
     public InHouse(int id, String name, double price, int stock, int min, int max, int machineId) {
         super(id, name, price, stock, min, max);
@@ -28,6 +28,8 @@ public class InHouse extends Part{
 
     /**
      * Returns the ID of the machine used to produce the part.
+     *
+     * @return the machine ID
      */
     public int getMachineId() {
         return machineId;
@@ -35,6 +37,8 @@ public class InHouse extends Part{
 
     /**
      * Sets the ID of the machine used to produce the part.
+     *
+     * @param machineId the machine ID to set
      */
     public void setMachineId(int machineId) {
         this.machineId = machineId;

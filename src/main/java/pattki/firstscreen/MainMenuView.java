@@ -66,6 +66,9 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Add" button in the Parts section.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs during loading of FXML file
      */
     @FXML
     void onActionPartsAdd(ActionEvent event) throws IOException {
@@ -79,6 +82,9 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Modify" button in the Parts section.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs during loading of FXML file
      */
     @FXML
     void onActionPartsModify(ActionEvent event) throws IOException {
@@ -118,6 +124,9 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Delete" button in the Parts section.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs during loading of FXML file
      */
     @FXML
     public void onActionPartsDelete(ActionEvent event) throws IOException {
@@ -140,6 +149,9 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Add" button in the Products section.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs during loading of FXML file
      */
     @FXML
     public void onActionProductsAdd(ActionEvent event) throws IOException {
@@ -161,6 +173,9 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Modify" button in the Products section.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs during loading of FXML file
      */
     @FXML
     public void onActionProductsModify(ActionEvent event) throws IOException {
@@ -191,6 +206,8 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Delete" button in the Products section.
+     *
+     * @param event the action event
      */
     @FXML
     public void onActionProductsDelete(ActionEvent event) {
@@ -246,6 +263,8 @@ public class MainMenuView implements Initializable {
 
     /**
      * Event handler for the "Exit" button.
+     *
+     * @param event the action event
      */
     @FXML
     public void onActionExit(ActionEvent event) {

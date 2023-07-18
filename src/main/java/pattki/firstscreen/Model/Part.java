@@ -16,12 +16,12 @@ public abstract class Part {
     /**
      * Constructs a new `Part` with the specified properties.
      *
-     * id        the ID of the part
-     * name      the name of the part
-     * price     the price of the part
-     * stock     the current stock level of the part
-     * min       the minimum stock level of the part
-     * max       the maximum stock level of the part
+     * @param id    the ID of the part
+     * @param name  the name of the part
+     * @param price the price of the part
+     * @param stock the current stock level of the part
+     * @param min   the minimum stock level of the part
+     * @param max   the maximum stock level of the part
      */
     public Part(int id, String name, double price, int stock, int min, int max) {
         this.id = id;

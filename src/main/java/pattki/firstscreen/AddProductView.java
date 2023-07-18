@@ -31,6 +31,9 @@ public class AddProductView implements Initializable {
 
     /**
      * Initializes the add product view.
+     *
+     * @param url            the URL to the FXML file
+     * @param resourceBundle the resource bundle associated with the FXML file
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -101,6 +104,8 @@ public class AddProductView implements Initializable {
 
     /**
      * Sets the parts data for the main parts table.
+     *
+     * @param parts the parts data to be displayed in the table
      */
     public void setPartsData(ObservableList<Part> parts) {
         mainPartsTable.setItems(parts);
@@ -124,6 +129,8 @@ public class AddProductView implements Initializable {
 
     /**
      * Removes an associated part from the product.
+     *
+     * @param event the action event
      */
     @FXML
     void onActionRemovePart(ActionEvent event) {
@@ -145,6 +152,8 @@ public class AddProductView implements Initializable {
 
     /**
      * Adds a selected part to the product.
+     *
+     * @param event the action event
      */
     @FXML
     void onActionAddPart(ActionEvent event) {
@@ -160,6 +169,9 @@ public class AddProductView implements Initializable {
 
     /**
      * Handles the event when the "Cancel" button is clicked.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs while loading the main menu view
      */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
@@ -171,6 +183,9 @@ public class AddProductView implements Initializable {
 
     /**
      * Handles the event when the "Save" button is clicked to save the new product.
+     *
+     * @param event the action event
+     * @throws IOException if an error occurs while loading the main menu view
      */
     @FXML
     void onActionSaveProduct(ActionEvent event) throws IOException {
@@ -245,6 +260,7 @@ public class AddProductView implements Initializable {
 
             Inventory.addProduct(newProduct);
 
+            // Navigate to the main menu
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("main-menu-view.fxml"));
             stage.setScene(new Scene(scene));
