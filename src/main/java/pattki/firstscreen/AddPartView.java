@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The `AddPartView` class is a controller for the "Add Part" view.
+ * It allows users to add a new part to the inventory.
+ */
 public class AddPartView implements Initializable {
 
     Stage stage;
@@ -54,14 +58,21 @@ public class AddPartView implements Initializable {
     @FXML
     private Label specialLabel;
 
+    /**
+     * Handles the event when the "Cancel" button is clicked.
+     */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
+        // Navigation to the Main Menu screen
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("main-menu-view.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
 
+    /**
+     * Handles the event when the Radio buttons are toggled.
+     */
     @FXML
     private void handleRadioButtonSelection(ActionEvent event) {
         if (inHouseRadioButton.isSelected()) {
@@ -76,6 +87,9 @@ public class AddPartView implements Initializable {
         // Add a label, near the title, that labels the part as either InHouse or Outsourced.
     }
 
+    /**
+     * Handles the event when the 'Save' button is clicked.
+     */
     @FXML
     void onActionSavePart(ActionEvent event) throws IOException {
         // Clear previous exception message
@@ -157,6 +171,7 @@ public class AddPartView implements Initializable {
                 Inventory.addPart(new Outsourced(id, name, price, stock, min, max, companyName));
             }
 
+            // Navigate back to the Main Menu screen
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("main-menu-view.fxml"));
             stage.setScene(new Scene(scene));
@@ -164,8 +179,12 @@ public class AddPartView implements Initializable {
         }
     }
 
+    /**
+     * Initializes the AddPartView controller's screen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Add Part Menu Viewed");
+
+        // System.out.println("Add Part Menu Viewed");
     }
 }

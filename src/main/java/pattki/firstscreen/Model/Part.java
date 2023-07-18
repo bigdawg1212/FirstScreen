@@ -1,5 +1,9 @@
 package pattki.firstscreen.Model;
 
+/**
+ * The `Part` class represents a generic part in the inventory system.
+ * It provides basic properties and methods common to all types of parts.
+ */
 public abstract class Part {
 
     private int id;
@@ -9,6 +13,16 @@ public abstract class Part {
     private int min;
     private int max;
 
+    /**
+     * Constructs a new `Part` with the specified properties.
+     *
+     * id        the ID of the part
+     * name      the name of the part
+     * price     the price of the part
+     * stock     the current stock level of the part
+     * min       the minimum stock level of the part
+     * max       the maximum stock level of the part
+     */
     public Part(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;

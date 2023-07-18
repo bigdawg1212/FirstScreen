@@ -20,6 +20,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The `ModifyPartView` class represents the controller for the modify part view.
+ * It allows the user to modify an existing part in the inventory.
+ */
 public class ModifyPartView implements Initializable {
 
     Stage stage;
@@ -31,12 +35,6 @@ public class ModifyPartView implements Initializable {
     // To store selection state of Radio Button
     private boolean isPartOutsourced;
 
-
-    @FXML
-    private Button modifyPartCancelButton;
-
-    @FXML
-    private Button modifyPartSaveButton;
 
     @FXML
     private TextField idText;
@@ -71,6 +69,9 @@ public class ModifyPartView implements Initializable {
     @FXML
     private Label exceptionText;
 
+    /**
+     * Handles the event when the "Cancel" button is clicked.
+     */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -80,6 +81,9 @@ public class ModifyPartView implements Initializable {
 
     }
 
+    /**
+     * Handles the event when a radio button is selected.
+     */
     @FXML
     private void handleRadioButtonSelection(ActionEvent event) {
         if (inHouseRadioButton.isSelected()) {
@@ -98,6 +102,11 @@ public class ModifyPartView implements Initializable {
         // Add a label, near the title, that labels the part as either InHouse or Outsourced.
     }
 
+    public static int partIndex;
+
+    /**
+     * Sends the selected part to the modify part view.
+     */
     public void sendPart(Part part)
     {
         this.part = part;
@@ -108,6 +117,8 @@ public class ModifyPartView implements Initializable {
         priceText.setText(String.valueOf(part.getPrice()));
         maxText.setText(String.valueOf(part.getMax()));
         minText.setText(String.valueOf(part.getMin()));
+
+        partIndex = Inventory.getAllParts().indexOf(part);
 
 
         // Here I send the proper subclass to the Modify Part page,
@@ -125,9 +136,11 @@ public class ModifyPartView implements Initializable {
             specialText.clear();
             specialText.setText(companyName);
         }
-
     }
 
+    /**
+     * Handles the event when the "Save" button is clicked to save the modified part.
+     */
     @FXML
     void onActionSavePart(ActionEvent event) throws IOException {
         // Clear previous exception message
@@ -225,8 +238,7 @@ public class ModifyPartView implements Initializable {
             updatedPart.setMin(min);
 
             // Update the part in the Inventory
-            Inventory.removePart(part);
-            Inventory.addPart(updatedPart);
+            Inventory.updatePart(partIndex, updatedPart);
 
             // Navigate back to the Main Menu screen
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -236,10 +248,11 @@ public class ModifyPartView implements Initializable {
         }
     }
 
-
+    /**
+     * Initialization when the ModifyPartView controller's screen is viewed.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Modify Part Screen Viewed");
-
+        // System.out.println("Modify Part Screen Viewed");
     }
 }

@@ -20,11 +20,18 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The `AddProductView` class represents the controller for the add product view.
+ * It allows the user to add a new product to the inventory.
+ */
 public class AddProductView implements Initializable {
 
     @FXML
     private TextField partsSearch;
 
+    /**
+     * Initializes the add product view.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialize the TableView Columns
@@ -92,7 +99,9 @@ public class AddProductView implements Initializable {
     @FXML
     private TableColumn<Part, Double> partPriceColumn;
 
-    // Populate the table view with the parts list on the Main Menu
+    /**
+     * Sets the parts data for the main parts table.
+     */
     public void setPartsData(ObservableList<Part> parts) {
         mainPartsTable.setItems(parts);
     }
@@ -113,6 +122,9 @@ public class AddProductView implements Initializable {
     @FXML
     private TableColumn<Part, Double> assoPartPriceColumn;
 
+    /**
+     * Removes an associated part from the product.
+     */
     @FXML
     void onActionRemovePart(ActionEvent event) {
         Part selectedPart = assoPartsTable.getSelectionModel().getSelectedItem();
@@ -131,6 +143,9 @@ public class AddProductView implements Initializable {
         }
     }
 
+    /**
+     * Adds a selected part to the product.
+     */
     @FXML
     void onActionAddPart(ActionEvent event) {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
@@ -143,6 +158,9 @@ public class AddProductView implements Initializable {
         // Add a pop up dialog box that gives the user the option to add multiple copies of the part
     }
 
+    /**
+     * Handles the event when the "Cancel" button is clicked.
+     */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
@@ -151,6 +169,9 @@ public class AddProductView implements Initializable {
         stage.show();
     }
 
+    /**
+     * Handles the event when the "Save" button is clicked to save the new product.
+     */
     @FXML
     void onActionSaveProduct(ActionEvent event) throws IOException {
         // Clear previous exception message

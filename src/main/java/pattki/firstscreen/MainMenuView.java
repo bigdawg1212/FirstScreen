@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The controller class for the Main Menu view.
+ */
 public class MainMenuView implements Initializable {
 
     @FXML
@@ -61,8 +64,9 @@ public class MainMenuView implements Initializable {
     Stage stage;
     Parent scene;
 
-    // Event Handlers
-
+    /**
+     * Event handler for the "Add" button in the Parts section.
+     */
     @FXML
     void onActionPartsAdd(ActionEvent event) throws IOException {
 
@@ -73,6 +77,9 @@ public class MainMenuView implements Initializable {
 
     }
 
+    /**
+     * Event handler for the "Modify" button in the Parts section.
+     */
     @FXML
     void onActionPartsModify(ActionEvent event) throws IOException {
 
@@ -94,6 +101,11 @@ public class MainMenuView implements Initializable {
 
     }
 
+    /**
+     * Shows a confirmation dialog for deleting a part.
+     *
+     * @return true if the user confirms the deletion, false otherwise
+     */
     private boolean deletePartConfirmation() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
@@ -104,6 +116,9 @@ public class MainMenuView implements Initializable {
         return result.isPresent() && result.get() == ButtonType.OK;
     }
 
+    /**
+     * Event handler for the "Delete" button in the Parts section.
+     */
     @FXML
     public void onActionPartsDelete(ActionEvent event) throws IOException {
 
@@ -123,6 +138,9 @@ public class MainMenuView implements Initializable {
 
     }
 
+    /**
+     * Event handler for the "Add" button in the Products section.
+     */
     @FXML
     public void onActionProductsAdd(ActionEvent event) throws IOException {
 
@@ -141,6 +159,9 @@ public class MainMenuView implements Initializable {
 
     }
 
+    /**
+     * Event handler for the "Modify" button in the Products section.
+     */
     @FXML
     public void onActionProductsModify(ActionEvent event) throws IOException {
 
@@ -168,6 +189,9 @@ public class MainMenuView implements Initializable {
         // Add an error pop up dialog box that notifies the user that there is no Product selected to modify
     }
 
+    /**
+     * Event handler for the "Delete" button in the Products section.
+     */
     @FXML
     public void onActionProductsDelete(ActionEvent event) {
         Product selectedProduct = mainProductsTable.getSelectionModel().getSelectedItem();
@@ -194,6 +218,11 @@ public class MainMenuView implements Initializable {
         // Give the user an option to STILL delete the product, along with its associated parts
     }
 
+    /**
+     * Shows a confirmation dialog for deleting a product.
+     *
+     * @return true if the user confirms the deletion, false otherwise
+     */
     private boolean deleteProductConfirmation() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
@@ -204,6 +233,9 @@ public class MainMenuView implements Initializable {
         return result.isPresent() && result.get() == ButtonType.OK;
     }
 
+    /**
+     * Shows a warning dialog for attempting to delete a product with associated parts.
+     */
     private void showDeleteProductWithAssociatedPartsWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
@@ -212,11 +244,17 @@ public class MainMenuView implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Event handler for the "Exit" button.
+     */
     @FXML
     public void onActionExit(ActionEvent event) {
         System.exit(0);
     }
 
+    /**
+     * Event handler for the initializing the screen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // To Do

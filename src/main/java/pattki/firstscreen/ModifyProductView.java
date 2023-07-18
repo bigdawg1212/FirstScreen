@@ -20,6 +20,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The `ModifyProductView` class is a controller for modifying a product.
+ * It allows users to modify the properties of a product and manage its associated parts.
+ */
 public class ModifyProductView implements Initializable {
 
     @FXML
@@ -28,6 +32,9 @@ public class ModifyProductView implements Initializable {
     // Temporary list to hold the associated parts
     private ObservableList<Part> tempAssociatedParts = FXCollections.observableArrayList();
 
+    /**
+     * Initializes the ModifyProductView controller's screen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -125,6 +132,11 @@ public class ModifyProductView implements Initializable {
     }
 
     private Product initialProduct;
+    public static int productIndex;
+
+    /**
+     * Sets the product data for modification.
+     */
     public void setProductData(Product product) {
         initialProduct = new Product(
                 product.getId(),
@@ -149,10 +161,13 @@ public class ModifyProductView implements Initializable {
         // Prepopulate the associated parts table
         tempAssociatedPartsTable.setItems(product.getAllAssociatedParts());
 
-        Inventory.removeProduct(product);
+        productIndex = Inventory.getAllProducts().indexOf(product);
 
     }
 
+    /**
+     * Handles the action when the user clicks the "Add" button to add a part to the product.
+     */
     @FXML
     void onActionAddPart(ActionEvent event) {
         Part selectedPart = mainPartsTable.getSelectionModel().getSelectedItem();
@@ -168,6 +183,9 @@ public class ModifyProductView implements Initializable {
         // Add a pop up dialog box that gives the user the option to add multiple copies of the part
     }
 
+    /**
+     * Handles the action when the user clicks the "Remove Associated Part" button to remove a part from the product.
+     */
     @FXML
     void onActionRemovePart(ActionEvent event) {
         Part selectedPart = tempAssociatedPartsTable.getSelectionModel().getSelectedItem();
@@ -189,8 +207,9 @@ public class ModifyProductView implements Initializable {
         }
     }
 
-    private Product selectedProduct = new Product(0, "", 0.0, 0,0,0);
-
+    /**
+     * Handles the action when the user clicks the "Save" button to save the modified product.
+     */
     @FXML
     void onActionSaveProduct(ActionEvent event) throws IOException {
         // Clear previous exception message
@@ -250,20 +269,24 @@ public class ModifyProductView implements Initializable {
         if (exceptionMessage.length() > 0) {
             exceptionText.setText("Exception: " + exceptionMessage.toString());
         } else {
-            // Update the associated parts of the selectedProduct
+            // Update the associated parts of the initialProduct
             ObservableList<Part> associatedParts = tempAssociatedPartsTable.getItems();
-            selectedProduct.getAllAssociatedParts().setAll(associatedParts);
 
-            // Update the selectedProduct with the modified attribute values from the screen
-            selectedProduct.setId(Integer.parseInt(idText.getText()));
-            selectedProduct.setName(nameText.getText());
-            selectedProduct.setPrice(Double.parseDouble(priceText.getText()));
-            selectedProduct.setStock(Integer.parseInt(invText.getText()));
-            selectedProduct.setMin(Integer.parseInt(minText.getText()));
-            selectedProduct.setMax(Integer.parseInt(maxText.getText()));
+            // Create a new Product object with the modified values
+            Product updatedProduct = new Product(
+                    Integer.parseInt(idText.getText()),
+                    nameText.getText(),
+                    Double.parseDouble(priceText.getText()),
+                    Integer.parseInt(invText.getText()),
+                    Integer.parseInt(minText.getText()),
+                    Integer.parseInt(maxText.getText())
+            );
 
-            // Add the modified product to the inventory
-            Inventory.addProduct(selectedProduct);
+            // Set the associated parts of the updated product
+            updatedProduct.getAllAssociatedParts().setAll(associatedParts);
+
+            // Update the product in Inventory
+            Inventory.updateProduct(productIndex, updatedProduct);
 
             // Navigate back to the Main Menu screen
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -273,11 +296,11 @@ public class ModifyProductView implements Initializable {
         }
     }
 
-
+    /**
+     * Handles the action when the user clicks the "Cancel" button to go back to the main menu.
+     */
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) throws IOException {
-        // Add the original Product back to the inventory
-        Inventory.addProduct(initialProduct);
 
         // Revert back to Main Menu
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
